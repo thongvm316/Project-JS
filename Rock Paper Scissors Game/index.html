@@ -11,7 +11,7 @@
   </head>
   <body>
     <div class="container p-3 d-flex  justify-content-center align-items-center">
-        <div class="score"></div>
+        <div class="score d-block"></div>
         <div class="message"></div>
         <button type="button">Rock</button>
         <button type="button">Paper</button>
@@ -27,13 +27,14 @@
       const message = document.querySelector('.message');
       const score = document.querySelector('.score');
       const buttons = document.querySelectorAll('button');
+      let winner = [0, 0];
       
       for (let i = 0; i < buttons.length; i++) {
           buttons[i].addEventListener('click', playGame);
-      }
+      };
 
       function playGame(e) {
-        // console.log(e.target.innerText);
+        let playerSelection = e.target.innerText;
         let computerSelection = Math.random();
 
         if (computerSelection < 0.34) {
@@ -42,10 +43,51 @@
           computerSelection = "Paper";  
         }else {
           computerSelection = "Scissors";
-          
         }
-        console.log(computerSelection);
-      }
+        console.log({playerSelection, computerSelection});
+        let resutl = checkWinner(playerSelection, computerSelection);
+        console.log(resutl);
+
+        if (resutl === 'Player') {
+          resutl += 'Wins!S2';
+          winner[0]++;
+        }else if (resutl === 'Computer') {
+          resutl += 'Wins!S2';
+          winner[1]++;
+        }
+        score.innerHTML = `Player 1:${ winner[0]}  Player 2:${ winner[1]}`;
+      };
+
+      function checkWinner(pl, co) {
+        if(pl === co){
+          return 'Drawn';
+        }
+
+        if (pl === 'Rock') {
+          if (co === 'Paper') {
+            return "Computer";
+          }else {
+          return "Player";
+          }
+        }
+
+        if (pl === 'Paper') {
+          if (co === 'Scissors') {
+            return "Computer";
+          }else {
+          return "Player";
+          }
+        }
+
+        if (pl === "Scissors") {
+          if (co === "Rock") {
+              return "Computer";
+          }
+          else {
+              return "Player";
+          }
+        }
+      };
 
 
             
