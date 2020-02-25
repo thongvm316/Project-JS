@@ -9,7 +9,34 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <style>
+       #player1, #player2 {
+         display: inline-block;
+         width: 200px;
+         height: 140px;
+         border: 1px solid black;
+         padding: 5px;
+         margin: 25px;
+         text-align: center;
+         font-size: 7em;
+       }
+
+       #output {
+         width: 550px;
+         text-align: center;
+         font-size: 2em;
+       }
+
+       button {
+         padding: 10px;
+         text-align: center;
+         width: 550px;
+       }
       
+      .all {
+        width: 1170px;
+        margin: auto;
+      }
+
       .dicer {
         border: 1px solid black;
         width: 90px;
@@ -37,6 +64,14 @@
   </head>
   <body>
    
+    <!-- <div class="all">
+      <div class="gameArea">
+        <div id="output"></div>
+        <div id="player1"></div>
+        <div id="player2"></div>
+      </div>
+      <button type="button" class="btn btn-primary">Roll</button>
+    </div>   -->
 
     <div class="output">
 
@@ -53,6 +88,33 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
     <script>
+
+      // const button = document.querySelector('button');
+      // const player1 = document.querySelector('#player1');
+      // const player2 = document.querySelector('#player2');
+      // const output = document.querySelector('.output');
+      // button.addEventListener('click', function () {
+      //   let rolls =  [roll(6), roll(6)];
+      //   let temp;
+      //   if (rolls[0] == rolls[1]) {
+      //     temp = 'It was a draw';
+      //   } else if (rolls[0] > rolls[1]) {
+      //     temp = 'Player 1 Wins';
+      //   } else {
+      //     temp = 'Player 2 wins';
+      //   }
+      //   output.innerHTML = temp;
+      //   console.log(rolls);
+      //   player1.innerHTML = rolls[0];
+      //   player2.innerHTML = rolls[1];
+      // })      
+      // function roll(num) {
+      //   let rNumber = Math.floor(Math.random() * num) + 1;
+      //   console.log(rNumber);
+      //   let n = 9855 + rNumber; //https://www.codetable.net/
+      //   let char = `&#${n};`;
+      //   return `${char}`;
+      // }
 
       /* ------------------Create Element Using Javascript-------------------- */
       const output = document.querySelector('.output');
